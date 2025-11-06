@@ -1,24 +1,18 @@
-import './App.css';
-import ToolBar from './components/ToolBar';
-import ControlPanel from './components/ControlPanel';
-import CanvasArea from './components/CanvasArea';
-import LayersPanel from './components/LayersPanel';
+import Toolbar from './components/ToolBar'
+import LayersPanel from './components/LayersPanel'
+import CanvasBoard from './components/CanvasArea'
+import ControlPanel from './components/ControlPanel'
 
 function App() {
-
   return (
-    <div className="app">
-      <div className="top-bar">
-        <ToolBar />
-        <ControlPanel />
-      </div>
-      <div className="main-area">
-        <div className="canvas-area">
-          <CanvasArea />
+    <div className="min-h-screen flex flex-col">
+      <Toolbar />
+      <div className="flex flex-1 overflow-hidden">
+        <div className="relative flex-1">
+          <CanvasBoard />
+          <ControlPanel />
         </div>
-        <div className="layers-panel">
-          <LayersPanel />
-        </div>
+        <LayersPanel />
       </div>
     </div>
   )
