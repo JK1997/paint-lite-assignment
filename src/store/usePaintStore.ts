@@ -61,12 +61,12 @@ export const usePaintStore = create<PaintState>((set: StoreApi<PaintState>['setS
       ],
     })),
   addFill: () =>
-    set((s: PaintState) => ({
-      layers: [
-        ...s.layers,
-        { id: nextId(), type: 'fill', color: s.fillOptions.color },
-      ],
-    })),
+    set((s: PaintState) => {
+      const otherLayers = s.layers.filter((l) => l.type !== 'fill')
+      return {
+        layers: [{ id: nextId(), type: 'fill', color: s.fillOptions.color }, ...otherLayers],
+      }
+    }),
   addBrushPoint: (x: number, y: number) =>
     set((s: PaintState) => {
       const lastLayer = s.layers[s.layers.length - 1]
