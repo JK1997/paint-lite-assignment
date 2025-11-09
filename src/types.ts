@@ -1,4 +1,4 @@
-export type ToolType = 'none' | 'shape' | 'fill'
+export type ToolType = 'none' | 'shape' | 'fill' | 'brush'
 
 export type ShapeType = 'rect' | 'circle'
 
@@ -18,4 +18,13 @@ export type FillLayer = {
   color: string
 }
 
-export type Layer = ShapeLayer | FillLayer
+export type BrushLayer = {
+  id: string
+  type: 'brush'
+  points: { x: number; y: number }[]
+  color: string
+  size: number
+}
+
+export type Layer = ShapeLayer | FillLayer | BrushLayer
+

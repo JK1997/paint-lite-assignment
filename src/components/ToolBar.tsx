@@ -24,6 +24,7 @@ export default function Toolbar() {
       <div className="flex items-center gap-2">
         <ToolButton active={tool === 'shape'} onClick={changeTool('shape')}>Shape</ToolButton>
         <ToolButton active={tool === 'fill'} onClick={changeTool('fill')}>Fill</ToolButton>
+        <ToolButton active={tool === 'brush'} onClick={changeTool('brush')}>Freeform Brush</ToolButton>
         <ToolButton active={tool === 'none'} onClick={changeTool('none')}>None</ToolButton>
       </div>
     </div>

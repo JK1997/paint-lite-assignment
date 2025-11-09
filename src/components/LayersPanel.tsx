@@ -20,6 +20,11 @@ export default function LayersPanel() {
                   <div className="font-medium">Shape: {layer.shape}</div>
                   <div className="text-xs text-slate-500">color {layer.color.toUpperCase()}</div>
                 </>
+              ) : layer.type === 'brush' ? (
+                <>
+                  <div className="font-medium">Freeform Brush</div>
+                  <div className="text-xs text-slate-500">color {layer.color.toUpperCase()}</div>
+                </>
               ) : (
                 <>
                   <div className="font-medium">Background Fill</div>
