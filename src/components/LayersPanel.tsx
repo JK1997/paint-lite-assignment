@@ -1,5 +1,6 @@
 import { usePaintStore } from '../store/usePaintStore'
 import type { PaintState } from '../store/usePaintStore'
+import ColorTag from './ColorTag'
 
 export default function LayersPanel() {
   const layers = usePaintStore((s: PaintState) => s.layers)
@@ -18,17 +19,28 @@ export default function LayersPanel() {
               {layer.type === 'shape' ? (
                 <>
                   <div className="font-medium">Shape: {layer.shape}</div>
-                  <div className="text-xs text-slate-500">color {layer.color.toUpperCase()}</div>
+                  <div className="text-xs text-slate-500 flex items-center gap-1">
+                    Color:
+                    <ColorTag color={layer.color} />
+                  </div>
+                  <div>
+                  </div>
                 </>
               ) : layer.type === 'brush' ? (
                 <>
                   <div className="font-medium">Freeform Brush</div>
-                  <div className="text-xs text-slate-500">color {layer.color.toUpperCase()}</div>
+                  <div className="text-xs text-slate-500 flex items-center gap-1">
+                    Color:
+                    <ColorTag color={layer.color} />
+                  </div>
                 </>
               ) : (
                 <>
                   <div className="font-medium">Background Fill</div>
-                  <div className="text-xs text-slate-500">{layer.color.toUpperCase()}</div>
+                  <div className="text-xs text-slate-500 flex items-center gap-1">
+                    Color:
+                    <ColorTag color={layer.color} />
+                  </div>
                 </>
               )}
             </div>
