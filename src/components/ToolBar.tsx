@@ -1,6 +1,7 @@
 import { usePaintStore } from '../store/usePaintStore'
 import type { PaintState } from '../store/usePaintStore'
 import type { ToolType } from '../types'
+import { FaBan, FaFillDrip, FaPaintBrush, FaRegSquare } from 'react-icons/fa'
 
 const ToolButton = ({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) => (
   <button
@@ -22,10 +23,10 @@ export default function Toolbar() {
   return (
     <div className="w-full border-b border-slate-200 bg-white p-2 sticky top-0 z-10">
       <div className="flex items-center gap-2">
-        <ToolButton active={tool === 'shape'} onClick={changeTool('shape')}>Shape</ToolButton>
-        <ToolButton active={tool === 'fill'} onClick={changeTool('fill')}>Fill</ToolButton>
-        <ToolButton active={tool === 'brush'} onClick={changeTool('brush')}>Freeform Brush</ToolButton>
-        <ToolButton active={tool === 'none'} onClick={changeTool('none')}>None</ToolButton>
+        <ToolButton active={tool === 'shape'} onClick={changeTool('shape')}><FaRegSquare /></ToolButton>
+        <ToolButton active={tool === 'fill'} onClick={changeTool('fill')}><FaFillDrip /></ToolButton>
+        <ToolButton active={tool === 'brush'} onClick={changeTool('brush')}><FaPaintBrush /></ToolButton>
+        <ToolButton active={tool === 'none'} onClick={changeTool('none')}><FaBan /></ToolButton>
       </div>
     </div>
   )
